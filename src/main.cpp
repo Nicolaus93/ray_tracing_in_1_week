@@ -13,7 +13,7 @@ void starting_image(int image_width = 256, int image_height = 256) {
         std::clog << "\rScanlines remaining: " << (image_height - j) << ' ' << std::flush;
         for (int i = 0; i < image_width; ++i) {
             auto pixel_color = color(double(i) / (image_width - 1), double(j) / (image_height - 1), 0);
-            write_color(std::cout, pixel_color);
+            write_color(std::cout, pixel_color, 10);
         }
     }
 }
@@ -28,6 +28,7 @@ int main() {
 
     cam.aspect_ratio = 16.0 / 9.0;
     cam.image_width  = 400;
+    cam.samples_per_pixel = 100;
 
     cam.render(world);
 }
