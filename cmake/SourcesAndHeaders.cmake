@@ -1,16 +1,16 @@
 set(sources
-    src/tmp.cpp
+    src/main.cpp
 )
 
 set(exe_sources
-		src/main.cpp
 		${sources}
 )
 
 set(headers
-    include/project/tmp.hpp
+    include/vec3.h
+    include/color.h
 )
 
-set(test_sources
-  src/tmp_test.cpp
-)
+# set(test_sources
+#   src/tmp_test.cpp
+# )

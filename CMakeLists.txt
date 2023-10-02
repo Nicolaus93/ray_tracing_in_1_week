@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.15)
 #
 
 project(
-  "Project"
+  "RayTracing"
   VERSION 0.1.0
   LANGUAGES CXX
 )
@@ -157,23 +157,20 @@ include(cmake/Doxygen.cmake)
 #
 
 # Identify and link with the specific "packages" the project uses
-#find_package(package_name package_version REQUIRED package_type [other_options])
-#target_link_libraries(
-#  ${PROJECT_NAME}
-#  PUBLIC
-#    dependency1 ...
-#  PRIVATE
-#    dependency2 ...
-#    ${PROJECT_NAME}_PROJECT_OPTIONS
-#    ${PROJECT_NAME}_PROJECT_WARNINGS
-#)
-#if(${PROJECT_NAME}_BUILD_EXECUTABLE AND ${PROJECT_NAME}_ENABLE_UNIT_TESTING)
+find_package(HDF5 REQUIRED COMPONENTS CXX)
+message(STATUS "HDF5 Libraries: ${HDF5_CXX_LIBRARIES}")
+target_link_libraries(
+ ${PROJECT_NAME}
+ PUBLIC
+  /usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5.so
+)
+# if(${PROJECT_NAME}_BUILD_EXECUTABLE AND ${PROJECT_NAME}_ENABLE_UNIT_TESTING)
 #  target_link_libraries(
 #    ${PROJECT_NAME}_LIB
 #    PUBLIC
-#      dependency1 ...
+#     ${HDF5_CXX_LIBRARIES}
 #  )
-#endif()
+# endif()
 
 # For Windows, it is necessary to link with the MultiThreaded library.
 # Depending on how the rest of the project's dependencies are linked, it might be necessary

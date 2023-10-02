@@ -9,7 +9,7 @@ project(
   LANGUAGES CXX
 )
 
-verbose_message("Adding tests under ${CMAKE_PROJECT_NAME}Tests...")
+# verbose_message("Adding tests under ${CMAKE_PROJECT_NAME}Tests...")
 
 foreach(file ${test_sources})
   string(REGEX REPLACE "(.*/)([a-zA-Z0-9_ ]+)(\.cpp)" "\\2" test_name ${file}) 
